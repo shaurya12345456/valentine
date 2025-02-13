@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Were You Clicking NO?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #FFB6C1;
+      color: white;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+    }
+
+    .message {
+      font-size: 1.8em;
+      margin-top: 20px;
+    }
+
+    .emojis {
+      font-size: 40px;
+      animation: cryingAnimation 2s infinite;
+    }
+
+    .buttons-container {
+      display: inline-block;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.5em;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      transition: all 0.2s;
+      margin: 10px;
+    }
+
+    #hate-button {
+      background-color: #FF6347;
+      color: white;
+    }
+
+    #love-button {
+      background-color: #32CD32;
+      color: white;
+    }
+
+    .floatingEmojis {
+      position: absolute;
+      font-size: 35px;
+      animation: randomEmojiAnimation 5s infinite;
+    }
+
+    @keyframes cryingAnimation {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-30px); opacity: 0.6; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes randomEmojiAnimation {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-30px); opacity: 0.6; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Why were you clicking NO? 😢</h1>
+  <div class="message">
+    Don't you love me? Howwwwwww! 😭
+  </div>
+  
+  <!-- Crying Emojis -->
+  <div class="emojis" style="top: 100px; left: 50px;">😢</div>
+  <div class="emojis" style="top: 150px; left: 250px;">😭</div>
+  <div class="emojis" style="top: 250px; left: 350px;">😩</div>
+
+  <div class="buttons-container">
+    <button id="hate-button">Still hate you! 😡</button>
+    <button id="love-button">Okay, now I love youuuu 💖</button>
+  </div>
+
+  <!-- Floating Emojis -->
+  <div class="floatingEmojis" style="top: 50px;">💔</div>
+  <div class="floatingEmojis" style="top: 150px;">💐</div>
+  <div class="floatingEmojis" style="top: 250px;">🌸</div>
+  <div class="floatingEmojis" style="top: 350px;">💌</div>
+
+  <script>
+    // Random movement for the "Still hate you" button
+    document.getElementById('hate-button').addEventListener('click', function() {
+      // Move the button to a random position on the screen
+      const randomX = Math.random() * (window.innerWidth - this.offsetWidth);
+      const randomY = Math.random() * (window.innerHeight - this.offsetHeight);
+      this.style.position = 'absolute';
+      this.style.left = `${randomX}px`;
+      this.style.top = `${randomY}px`;
+    });
+
+    // Redirect to the success page when the "Okay, now I love youuuu" button is clicked
+    document.getElementById('love-button').addEventListener('click', function() {
+      window.location.href = 'success.html';  // Redirect to success page
+    });
+  </script>
+
+</body>
+</html>
+
